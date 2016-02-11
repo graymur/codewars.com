@@ -31,10 +31,6 @@ Number.prototype.noExponents= function(){
     return str + z;
 };
 
-//sumStrings('123','456');
-dv(sumStrings('712569312664357328695151392', '8100824045303269669937'));
-
-//Test.assertEquals(sumStrings('123','456'),'579');
-//Test.assertEquals(sumStrings('','5'),'5');
-//Test.assertEquals(sumStrings('712569312664357328695151392','8100824045303269669937'),'712577413488402631964821329');
-//sumStrings('712569312664357328695151392', '8100824045303269669937')
+Test.assertEquals(sumStrings('123','456'),'579');
+Test.assertEquals(sumStrings('','5'),'5');
+Test.assertEquals(sumStrings('712569312664357328695151392','8100824045303269669937'),'712577413488402631964821329');

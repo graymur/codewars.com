@@ -9,35 +9,6 @@ let Test = tests.Test, describe = tests.describe, it = tests.it, before = tests.
 
 const dv = console.log.bind(console);
 
-//Array.prototype.diff = function(a) {
-//    return this.filter(function(i) {return !(a.indexOf(i) > -1);});
-//};
-//
-//function deepCompare(o1, o2) {
-//    let i, keys1, keys2;
-//
-//    if (typeof o1 !== 'object' || typeof o2 !== 'object' || !o1 || !o2) {
-//        return o1 === o2;
-//    } else {
-//        keys1 = Object.keys(o1);
-//        keys2 = Object.keys(o2);
-//
-//        if (keys1.diff(keys2).length || keys2.diff(keys1).length) {
-//            return false;
-//        }
-//
-//        for (i in o1) {
-//            if (!o1.hasOwnProperty(i)) continue;
-//
-//            if (!deepCompare(o1[i], o2[i])) {
-//                return false;
-//            }
-//        }
-//    }
-//
-//    return true;
-//}
-
 function isArray(ar) {
     return Object.prototype.toString.call(ar) === '[object Array]';
 }

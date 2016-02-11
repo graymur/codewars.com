@@ -20,13 +20,6 @@ function validParentheses(parens){
     return valid === 0 && arr[0] === '(' && arr[arr.length - 1] === ')';
 }
 
-dv(validParentheses( "())" ));
-dv(validParentheses( "(())((()())())" ));
-
-dv(validParentheses( "()" )) //=> returns true
-dv(validParentheses( ")(()))" )) //=> returns false
-dv(validParentheses( "(" )) //=> returns false
-
 Test.assertEquals(validParentheses( "()" ), true);
 Test.assertEquals(validParentheses( "())" ), false);
 Test.assertEquals(validParentheses( "(())((()())())" ), true);

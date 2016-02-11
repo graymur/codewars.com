@@ -83,54 +83,20 @@ function Event() {
     });
 }
 
-//function l(arr) { arr.push('l'); }
-//function o(arr) { arr.push('o'); }
-//
-//var e = new Event(),
-//    bucket = [];
-//
-//e.subscribe(l, o, l);
-//e.emit(bucket);
-//
-////bucket should be ['l', 'o', 'l']
-//Test.assertSimilar(bucket, ['l', 'o', 'l']);
-//
-//e.unsubscribe(o, l);
-//bucket = [];
-//
-//e.emit(bucket); //bucket should be ['l']
-//
-//Test.assertSimilar(bucket, ['l']);
+function l(arr) { arr.push('l'); }
+function o(arr) { arr.push('o'); }
 
-//function l(arr) { arr.push('l'); }
-//function o(arr) { arr.push('o'); }
-//
-//var e = new Event(), bucket = [];
-//
-//e.subscribe(l, o, l);
-//e.emit.call({foo:"bar"}, bucket);
+var e = new Event(), bucket = [];
 
-////bucket should be ['l', 'o', 'l']
-//Test.assertSimilar(bucket, ['l', 'o', 'l']);
-//
-//e.unsubscribe(o, l);
-//bucket = [];
-//
-//e.emit(bucket); //bucket should be ['l']
-//
-//Test.assertSimilar(bucket, ['l']);
+e.subscribe(l, o, l);
+e.emit.call({foo:"bar"}, bucket);
 
-function _spy() {
-    _spy.calls = (_spy.calls || 0) + 1;
-    _spy.args = Array.prototype.slice.call(arguments);
-    _spy.ctx = this;
+//bucket should be ['l', 'o', 'l']
+Test.assertSimilar(bucket, ['l', 'o', 'l']);
 
-    if (typeof func === 'function') {
-        return func.apply(this, _spy.args);
-    }
-}
+e.unsubscribe(o, l);
+bucket = [];
 
-var e = new Event();
+e.emit(bucket); //bucket should be ['l']
 
-e.subscribe(100500, _spy, { hello: 'world' }, _spy, 'foo', undefined, _spy, null, 'banana', [ 'a', 2 ], _spy, false, _spy, NaN);
-e.emit(1, 'first', true, null, undefined, { a: 'b', c: 10 });
+Test.assertSimilar(bucket, ['l']);

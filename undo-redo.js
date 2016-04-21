@@ -11,6 +11,7 @@ const dv = console.log.bind(console);
 
 function undoRedo(object) {
     var obj = object;
+    var undoAvailable = true;
 
     var history = {
         undo: [],
@@ -23,7 +24,11 @@ function undoRedo(object) {
 
     return {
         set: function(key, value) {
+            history.undo.push(JSON.parse(JSON.stringify(obj)));
+
             obj[key] = value;
+            undoAvailable = true;
+
         },
         get: function(key) {
             return obj[key];
@@ -31,7 +36,9 @@ function undoRedo(object) {
         del: function(key) {
             delete obj[key];
         },
-        undo: function() {},
+        undo: function() {
+            undoAvailable = false;
+        },
         redo: function() {}
     };
 }

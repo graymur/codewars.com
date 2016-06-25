@@ -28,6 +28,7 @@ function MagicFunction() {
     }
 
     [].slice.call(arguments).forEach(function (x) {
+        x = isNaN(parseInt(x)) ? 0 : parseInt(x);
         MagicFunction.sum += x;
     });
 

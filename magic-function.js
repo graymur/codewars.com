@@ -16,30 +16,20 @@
  *
  */
 
-"use strict";
-
 let tests = require('./lib/framework.js');
-let _ = require('./lib/underscore.js');
 let Test = tests.Test, describe = tests.describe, it = tests.it, before = tests.before, after = tests.after;
 
-function MagicFunction() {
-    if (typeof MagicFunction.sum === 'undefined') {
-        MagicFunction.sum = 0;
-    }
+function MagicFunction(...args) {
+    let result = args.reduce((sum, curr) => {
+        return sum + (isNaN(Number(curr)) ? 0 : Number(curr));
+    }, 0);
 
-    [].slice.call(arguments).forEach(function (x) {
-        x = isNaN(parseInt(x)) ? 0 : parseInt(x);
-        MagicFunction.sum += x;
-    });
+    let res = MagicFunction.bind(this, result);
 
-    return MagicFunction;
+    res.valueOf = () => result;
+
+    return res;
 }
-
-MagicFunction.valueOf = function () {
-    var retval = MagicFunction.sum;
-    MagicFunction.sum = 0;
-    return retval;
-};
 
 Test.expect(0 == MagicFunction());
 Test.expect(3 == MagicFunction(1, 2));

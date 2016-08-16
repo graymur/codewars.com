@@ -7,10 +7,7 @@
  *
  */
 
-"use strict";
-
 let tests = require('./lib/framework.js');
-let _ = require('./lib/underscore.js');
 let Test = tests.Test, describe = tests.describe, it = tests.it, before = tests.before, after = tests.after;
 
 function calculateProbability(n) {

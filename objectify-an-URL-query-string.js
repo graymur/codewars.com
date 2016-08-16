@@ -22,14 +22,12 @@
  }
  */
 
-"use strict";
-
 let tests = require('./lib/framework.js');
 let Test = tests.Test, describe = tests.describe, it = tests.it, before = tests.before, after = tests.after;
 
-var q = 'user.name.firstname=Bob&user.name.lastname=Smith&user.favoritecolor=Light%20Blue';
+let q = 'user.name.firstname=Bob&user.name.lastname=Smith&user.favoritecolor=Light%20Blue';
 
-var out = {
+let out = {
     'user': {
         'name': {
             'firstname': 'Bob',
@@ -40,12 +38,12 @@ var out = {
 };
 
 function convertQueryToMap(q) {
-    var out = {};
+    let out = {};
 
     q.split('&').forEach(function (item) {
-        var pair = item.split('=');
-        var keys = pair[0].split('.');
-        var pointer = out;
+        let pair = item.split('=');
+        let keys = pair[0].split('.');
+        let pointer = out;
 
         if (keys[0] === '') return ;
 
@@ -65,5 +63,11 @@ function convertQueryToMap(q) {
     return out;
 }
 
-convertQueryToMap(q);
-convertQueryToMap("a=a%26b%3Dc%3F");
+let qObj = convertQueryToMap(q);
+
+Test.expect(qObj.user.name.firstname === 'Bob');
+Test.expect(qObj.user.favoritecolor === 'Light Blue');
+
+qObj = convertQueryToMap("a=a%26b%3Dc%3F");
+
+Test.expect(qObj.a === 'a&b=c?');

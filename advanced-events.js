@@ -2,12 +2,8 @@
  * http://www.codewars.com/kata/52d4678038644497e900007c/
  */
 
-"use strict";
-
 let tests = require('./lib/framework.js');
 let Test = tests.Test, describe = tests.describe, it = tests.it, before = tests.before, after = tests.after;
-
-const dv = console.log.bind(console);
 
 /*
 

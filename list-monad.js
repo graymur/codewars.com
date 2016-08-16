@@ -2,13 +2,8 @@
  * https://www.codewars.com/kata/53db4acb1f1a7dd68700040a
  */
 
-"use strict";
-
 let tests = require('./lib/framework.js');
-let _ = require('./lib/underscore.js');
 let Test = tests.Test, describe = tests.describe, it = tests.it, before = tests.before, after = tests.after;
-
-var dv = console.log.bind(console);
 
 /*
  * from: actual position of the knight

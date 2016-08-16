@@ -1,13 +1,16 @@
 /**
  * http://www.codewars.com/kata/51646de80fd67f442c000013/
- */
+ *
+ Description:
+ Complete the method so that it does the following:
 
-"use strict";
+ Removes any duplicate query string parameters from the url
+ Removes any query string parameters specified within the 2nd argument (optional array)
+ *
+ */
 
 let tests = require('./lib/framework.js');
 let Test = tests.Test, describe = tests.describe, it = tests.it, before = tests.before, after = tests.after;
-
-const dv = console.log.bind(console);
 
 function stripUrlParams(url, paramsToStrip) {
     paramsToStrip = paramsToStrip || [];

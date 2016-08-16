@@ -1,10 +1,9 @@
-var tests = require('./lib/framework.js');
-
-var dv = console.log.bind(console);
+let tests = require('./lib/framework.js');
+let Test = tests.Test, describe = tests.describe, it = tests.it, before = tests.before, after = tests.after;
 
 function ordinal(number, brief) {
     brief = brief || false;
-    var retval, last = 0;
+    let retval, last = 0;
 
     if (number % 100 > 10 && number % 100 < 20)  {
         retval = 'th';
@@ -25,11 +24,11 @@ function ordinal(number, brief) {
     return brief && ([2,3].indexOf(last) > -1) ? retval[retval.length - 1] : retval;
 }
 
-tests.Test.assertEquals(ordinal(0, true), "th", 0);
-tests.Test.assertEquals(ordinal(1), "st", 1);
-tests.Test.assertEquals(ordinal(11), "th", 11);
-tests.Test.assertEquals(ordinal(111), "th", 111);
-tests.Test.assertEquals(ordinal(121), "st", 121);
-tests.Test.assertEquals(ordinal(20), "th", 20);
-tests.Test.assertEquals(ordinal(52), "nd", 52);
-tests.Test.assertEquals(ordinal(903, true), "d", 903);
+Test.assertEquals(ordinal(0, true), "th", 0);
+Test.assertEquals(ordinal(1), "st", 1);
+Test.assertEquals(ordinal(11), "th", 11);
+Test.assertEquals(ordinal(111), "th", 111);
+Test.assertEquals(ordinal(121), "st", 121);
+Test.assertEquals(ordinal(20), "th", 20);
+Test.assertEquals(ordinal(52), "nd", 52);
+Test.assertEquals(ordinal(903, true), "d", 903);

@@ -1,13 +1,16 @@
 /**
  * http://www.codewars.com/kata/53b406e67040e51e17000c0a/
- */
+ *
+ Description:
 
-//"use strict";
+ Implement a Least Recently Used (LRU) cache (https://en.wikipedia.org/wiki/Cache_algorithms#Examples). An LRU cache is a key-value store that contains a set capacity for the number of elements it holds, which is stored in a property. The size should also be a property. When trying to add a new key-value pair, if cache.size == cache.capacity, the Least Recently Used key is removed.
+
+ Hint: You will will need to use the Object.defineProperty facility
+ *
+ */
 
 var tests = require('./lib/framework.js');
 var Test = tests.Test, describe = tests.describe, it = tests.it, before = tests.before, after = tests.after;
-
-const dv = console.log.bind(console);
 
 function length(obj) {
     return Object.keys(obj).length;

@@ -1,4 +1,5 @@
-var dv = console.log.bind(console);
+let tests = require('./lib/framework.js');
+let Test = tests.Test, describe = tests.describe, it = tests.it, before = tests.before, after = tests.after;
 
 function narcissistic(value) {
     var power = value.toString().length;
@@ -11,8 +12,8 @@ function narcissistic(value) {
     return sum === value;
 }
 
-dv(narcissistic(7));
-dv(narcissistic(153));
-dv(narcissistic(371));
-dv(narcissistic(1634));
-dv(narcissistic(1635));
+Test.expect(narcissistic(7) === true);
+Test.expect(narcissistic(153) === true);
+Test.expect(narcissistic(371) === true);
+Test.expect(narcissistic(1634) === true);
+Test.expect(narcissistic(1635) === false);

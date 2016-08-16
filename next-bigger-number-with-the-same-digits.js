@@ -1,14 +1,13 @@
 /**
  * http://www.codewars.com/kata/55983863da40caa2c900004e/
+ *
+ Description:
+
+ You have to create a function that takes a positive integer number and returns the next bigger number formed by the same digits:
  */
 
-"use strict";
-
 let tests = require('./lib/framework.js');
-let _ = require('./lib/underscore.js');
 let Test = tests.Test, describe = tests.describe, it = tests.it, before = tests.before, after = tests.after;
-
-const dv = console.log.bind(console);
 
 function replace(array, replace, startIndex) {
     var copy = array.slice(0);

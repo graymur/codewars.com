@@ -1,13 +1,26 @@
 /**
  * http://www.codewars.com/kata/521ef596c106a935c0000519
- */
+ *
+ Description:
 
-"use strict";
+ We need prime numbers and we need them now!
+
+ Write a method that takes a maximum bound and returns all primes starting with 0 up-to and including the maximum bound.
+
+ For example:
+
+ prime(11);
+
+ Should return an array that looks like this:
+
+ [2,3,5,7,11]
+
+
+ *
+ */
 
 let tests = require('./lib/framework.js');
 let Test = tests.Test, describe = tests.describe, it = tests.it, before = tests.before, after = tests.after;
-
-const dv = console.log.bind(console);
 
 function primeTrial(num) {
     var sqrt = Math.ceil(Math.sqrt(num)), i = 1;
@@ -35,4 +48,10 @@ function prime(num) {
     return retval;
 }
 
-dv(prime(20));
+let result = prime(11);
+
+Test.assertEquals(result[0], 2);
+Test.assertEquals(result[1], 3);
+Test.assertEquals(result[2], 5);
+Test.assertEquals(result[3], 7);
+Test.assertEquals(result[4], 11);

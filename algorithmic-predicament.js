@@ -1,13 +1,20 @@
 /**
- * http://www.codewars.com/kata/53907ac3cd51b69f790006c5/
- */
+ * https://www.codewars.com/kata/55d3b1f2c1b2f0d3470000a9
+ *
+ Oh no! Timmy's algorithim has gone wrong! help Timmy fix his algorithim!
 
-"use strict";
+ Task
+ Your task is to fix timmy's algorithim so it returns the group name with the highest total age.
+
+ You will receive two groups of people objects, with the two properties name and age. The name property
+ is a string and the age property is a number. Your goal is to total the age of all people with the same
+ names and return the name with the highest total age. If two name groups have the same total age return
+ the first alphabetical name.
+ *
+ */
 
 let tests = require('./lib/framework.js');
 let Test = tests.Test, describe = tests.describe, it = tests.it, before = tests.before, after = tests.after;
-
-const dv = console.log.bind(console);
 
 function sortAge(p, c) {
     return p[1] < c[1] ? 1 : -1;

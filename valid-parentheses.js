@@ -1,13 +1,25 @@
 /**
- * http://www.codewars.com/kata/525c65e51bf619685c000059/
- */
+ * https://www.codewars.com/kata/52774a314c2333f0a7000688
+ *
+ Description:
 
-"use strict";
+ Write a function called validParentheses that takes a string of parentheses, and determines
+ if the order of the parentheses is valid. validParentheses should return true if the string
+ is valid, and false if it's invalid.
+
+ Examples:
+ validParentheses( "()" ) => returns true
+ validParentheses( ")(()))" ) => returns false
+ validParentheses( "(" ) => returns false
+ validParentheses( "(())((()())())" ) => returns true
+
+ All input strings will be nonempty, and will only consist of open parentheses '(' and/or closed parentheses ')'
+
+ *
+ */
 
 let tests = require('./lib/framework.js');
 let Test = tests.Test, describe = tests.describe, it = tests.it, before = tests.before, after = tests.after;
-
-const dv = console.log.bind(console);
 
 function validParentheses(parens){
     var valid = 0;

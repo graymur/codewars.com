@@ -1,7 +1,22 @@
+/**
+ * https://www.codewars.com/kata/54ca3e777120b56cb6000710
+ *
+ *
+ Description:
+
+ Your task is to write a higher order function for chaining together a list of unary functions. In other words, it should return a function that does a left fold on the given functions.
+
+ chained([a,b,c,d])(input)
+
+ Should yield the same result as
+
+ d(c(b(a(input))))
+
+
+ */
+
 var tests = require('./lib/framework.js');
 var Test = tests.Test, describe = tests.describe, it = tests.it, before = tests.before, after = tests.after;
-
-var dv = console.log.bind(console);
 
 function chained(functions) {
     return function (x) {

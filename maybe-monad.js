@@ -2,17 +2,11 @@
  * https://www.codewars.com/kata/52793ed3fdb8e19406000c72
  */
 
-"use strict";
-
 let tests = require('./lib/framework.js');
-let _ = require('./lib/underscore.js');
 let Test = tests.Test, describe = tests.describe, it = tests.it, before = tests.before, after = tests.after;
-
-var dv = console.log.bind(console);
 
 /////////////////////////////////////////////////////////////////
 function Maybe() {
-    //Object.freeze(this);
 }
 
 /////////////////////////////////////////////////////////////////
@@ -20,7 +14,6 @@ function Just(x) {
     //console.log(x);
     this.toString = function () { return "Just " + x.toString(); };
     this.just = x;
-    Object.freeze(this);
 }
 
 Just.prototype = new Maybe();
@@ -78,7 +71,9 @@ Maybe.do = function(m) {
     }, m);
 };
 
-var mDup = Maybe.lift( function (s) { return s + s; } );
-var mTrim = Maybe.lift( function (s) { return s.replace(/\s+$/, ''); } );
+let mDup = Maybe.lift( function (s) { return s + s; } );
+let mTrim = Maybe.lift( function (s) { return s.replace(/\s+$/, ''); } );
 
-dv(Maybe.do( Maybe.unit('abc '), mDup, mTrim, mDup ));   // => new Just "abc abcabc abc"
+let result = Maybe.do( Maybe.unit('abc '), mDup, mTrim, mDup );   // => new Just "abc abcabc abc"
+
+Test.expect(result.toString() === 'Just abc abcabc abc');

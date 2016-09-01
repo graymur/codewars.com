@@ -15,7 +15,7 @@
 let tests = require('./lib/framework.js');
 let Test = tests.Test, describe = tests.describe, it = tests.it, before = tests.before, after = tests.after;
 
-function merge(left, right){
+function merge(left, right) {
     let result = [];
     let il = 0;
     let ir = 0;
